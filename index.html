@@ -1,187 +1,237 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>AXISFAB | IoT · AI · Robotics Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AXISFAB는 IoT, AI, Robotics 기반 교육 및 산업 솔루션을 제공합니다." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXISFAB by Leekoos | AI Robotics & Physical Intelligence</title>
 
-  <style>
-    :root {
-      --main-color: #0a2540;
-      --sub-color: #1f6feb;
-      --bg-color: #f5f7fa;
-      --text-color: #333;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Pretendard", "Noto Sans KR", sans-serif;
-    }
+<style>
+:root{
+  --bg:#0a0a0f;
+  --panel:#111118;
+  --line:#1a1a2e;
+  --neon-green:#39ff14;
+  --neon-cyan:#00f0ff;
+  --text:#e8e8f0;
+  --sub:#8b8bb5;
+  --grad:linear-gradient(135deg,#39ff14,#00f0ff);
+}
 
-    body {
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Rajdhani','Noto Sans KR',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+}
 
-    header {
-      background: linear-gradient(135deg, var(--main-color), #000);
-      color: #fff;
-      padding: 100px 20px;
-      text-align: center;
-    }
+/* ===== GRID BACKGROUND ===== */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(57,255,20,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(57,255,20,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  z-index:-1;
+}
 
-    header h1 {
-      font-size: 3rem;
-      letter-spacing: 2px;
-    }
+/* ===== HEADER ===== */
+header{
+  position:fixed;
+  top:0;width:100%;
+  background:rgba(10,10,15,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  z-index:1000;
+}
+nav{
+  max-width:1400px;
+  margin:auto;
+  padding:1.2rem 3rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  letter-spacing:3px;
+}
+.logo span:first-child{color:var(--neon-green)}
+.logo small{
+  margin-left:10px;
+  font-size:11px;
+  color:var(--sub);
+  letter-spacing:2px;
+}
 
-    header p {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+.nav-links{
+  display:flex;
+  gap:2.5rem;
+  list-style:none;
+}
+.nav-links a{
+  text-decoration:none;
+  color:var(--sub);
+  font-size:13px;
+  letter-spacing:2px;
+}
+.nav-links a:hover{color:var(--neon-cyan)}
 
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:140px 20px 80px;
+}
+.hero h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(40px,7vw,86px);
+  font-weight:900;
+  line-height:1.05;
+  background:linear-gradient(135deg,#fff,#39ff14,#00f0ff);
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradient 6s infinite;
+}
+.hero p{
+  margin-top:30px;
+  font-size:18px;
+  color:var(--sub);
+}
+.cta-button{
+  margin-top:50px;
+  display:inline-block;
+  padding:14px 36px;
+  border-radius:40px;
+  background:var(--grad);
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
+}
 
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: var(--main-color);
-    }
+/* ===== SECTION ===== */
+section{
+  padding:120px 20px;
+  max-width:1400px;
+  margin:auto;
+}
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+.section-title h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:42px;
+}
+.section-title p{color:var(--sub)}
 
-    .about p {
-      max-width: 800px;
-      font-size: 1.05rem;
-    }
+/* ===== CARDS ===== */
+.services-grid,
+.tech-grid,
+.solutions-grid{
+  display:grid;
+  gap:28px;
+}
+.services-grid{grid-template-columns:repeat(3,1fr)}
+.solutions-grid{grid-template-columns:repeat(2,1fr)}
+.tech-grid{grid-template-columns:repeat(4,1fr)}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+.service-card,
+.solution-card,
+.tech-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:36px;
+  transition:.4s;
+}
+.service-card:hover,
+.solution-card:hover,
+.tech-item:hover{
+  transform:translateY(-8px);
+  border-color:rgba(57,255,20,.4);
+}
 
-    .card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
+.service-icon,
+.tech-icon{
+  font-size:32px;
+  margin-bottom:16px;
+}
 
-    .card h3 {
-      margin-bottom: 15px;
-      color: var(--sub-color);
-    }
+/* ===== CONTACT ===== */
+#contact{
+  background:linear-gradient(135deg,#050507,#0d0d18);
+  border-top:1px solid var(--line);
+}
 
-    footer {
-      background: #111;
-      color: #bbb;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-    }
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:60px 20px;
+  border-top:1px solid var(--line);
+  color:var(--sub);
+  font-size:13px;
+}
 
-    footer strong {
-      color: #fff;
-    }
-  </style>
+/* ===== ANIMATION ===== */
+@keyframes gradient{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .services-grid,
+  .solutions-grid,
+  .tech-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <header>
-    <h1>AXISFAB</h1>
+<header>
+  <nav>
+    <div class="logo">
+      <span>AXISFAB</span>
+      <small>by Leekoos</small>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#services">TECH</a></li>
+      <li><a href="#solutions">SOLUTIONS</a></li>
+      <li><a href="#technology">FIELDS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="about">
+  <div>
+    <h1>AI · Robotics<br>Physical Intelligence</h1>
     <p>
-      IoT · AI · Robotics 기반<br />
-      교육 및 산업용 기술 솔루션 전문기업
+      AXISFAB는 Leekoos의 교육·기술 브랜드로<br>
+      AI 로봇, AI 반도체, Physical AI 기반 연구개발 솔루션을 제공합니다.
     </p>
-  </header>
+    <a href="#contact" class="cta-button">Work in Progress.</a>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <h2>About Us</h2>
-    <p>
-      AXISFAB는 IoT, 인공지능(AI), 로보틱스 기술을 기반으로<br />
-      교육용 실습장비부터 산업 현장 적용 솔루션까지<br />
-      **설계 · 개발 · 교육 콘텐츠**를 함께 제공하는 기술 중심 기업입니다.
-    </p>
-  </section>
-
-  <!-- SOLUTIONS -->
-  <section>
-    <h2>Core Solutions</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>IoT Systems</h3>
-        <p>
-          센서, MCU, 네트워크 기반의<br />
-          스마트 IoT 실습키트 및 모니터링 시스템
-        </p>
-      </div>
-      <div class="card">
-        <h3>AI Vision</h3>
-        <p>
-          비전카메라 + Edge AI 기반<br />
-          검사, 인식, 자동화 교육 및 실습 솔루션
-        </p>
-      </div>
-      <div class="card">
-        <h3>Robotics</h3>
-        <p>
-          로봇 제어, 자동화 공정, 컨베이어 기반<br />
-          공학교육 및 산업 적용 장비
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section>
-    <h2>Education & Industry</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>교육용 장비</h3>
-        <p>
-          · IoT 실습 키트<br />
-          · AI 비전 검사 장치<br />
-          · 스마트홈 / 스마트팩토리 교육장비
-        </p>
-      </div>
-      <div class="card">
-        <h3>산업용 솔루션</h3>
-        <p>
-          · 자동화 제어 시스템<br />
-          · AI 기반 검사 시스템<br />
-          · 맞춤형 기술 컨설팅
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section>
-    <h2>Contact</h2>
-    <div class="card">
-      <p>
-        <strong>AXISFAB</strong><br />
-        IoT · AI · Robotics Engineering<br /><br />
-        📧 Email : contact@axisfab.co.kr<br />
-        🌐 Website : www.axisfab.co.kr
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 <strong>AXISFAB</strong>. All Rights Reserved.
-  </footer>
+<footer>
+  © 2024 AXISFAB by Leekoos · AI Robotics · Physical AI · Semiconductor Education
+</footer>
 
 </body>
 </html>
